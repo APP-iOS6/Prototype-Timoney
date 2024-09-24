@@ -31,7 +31,7 @@ struct MainView: View {
                     }
                 }
                 .padding(.horizontal)
-                    
+                
                 // 날짜 범위
                 Text("2024.09.20 ~ 2024.09.24")
                     .font(.subheadline)
@@ -94,7 +94,7 @@ struct MainView: View {
                     .transaction { t in
                         t.animation = .default
                     }
-                    
+                
                 Spacer()
                 
                 HStack {
