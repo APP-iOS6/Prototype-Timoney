@@ -111,7 +111,7 @@ struct InitWishListView: View {
                     RoundedRectangle(cornerRadius: 10)
                         .frame(width: 100, height: 50)
                     Text("완료")
-                        .colorInvert()
+                        .foregroundStyle(.white)
                 }
             }
             .padding()

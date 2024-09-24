@@ -12,9 +12,11 @@ struct InitDateInputView: View {
     @Environment(\.dismiss) var dissmiss
     
     @State var startDate: Date = .now
-    @State var endDate: Date = .now
+    @State var endDate: Date = (Calendar.current.date(byAdding: .month, value: 1, to: .now) ?? .now)
     
-    
+    var timeInterval: Int{
+        Int(endDate.timeIntervalSince(startDate)) / 60 / 60 / 24
+    }
     
     var body: some View {
         VStack{
@@ -53,7 +55,7 @@ struct InitDateInputView: View {
                         .padding()
                 }
                 Divider()
-                Text("30일 간격으로 계산됩니다")
+                Text("\(timeInterval)일 간격으로 계산됩니다")
             }
             
             Spacer()
@@ -64,7 +66,7 @@ struct InitDateInputView: View {
                     RoundedRectangle(cornerRadius: 10)
                         .frame(width: 100, height: 50)
                     Text("다음으로")
-                        .colorInvert()
+                        .foregroundStyle(.white)
                 }
             }
         }
@@ -83,5 +85,7 @@ struct InitDateInputView: View {
 }
 
 #Preview {
-    InitDateInputView()
+    NavigationStack{
+        InitDateInputView()
+    }
 }
