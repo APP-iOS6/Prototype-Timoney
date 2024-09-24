@@ -134,6 +134,9 @@ struct MainView: View {
     }
     
     func startTimer() {
+        if timer != nil {
+                    timer?.invalidate()
+                }
         timer = Timer.scheduledTimer(withTimeInterval: updateInterval, repeats: true) { _ in
             if amount < totalAmount {
                 amount += 50000 // 1초마다 50,000원씩 증가
