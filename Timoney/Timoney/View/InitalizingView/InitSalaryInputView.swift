@@ -51,6 +51,7 @@ struct InitSalaryInputView: View {
                         .colorInvert()
                 }
             }
+            .disabled(salary.isEmpty)
         }
         .padding()
         

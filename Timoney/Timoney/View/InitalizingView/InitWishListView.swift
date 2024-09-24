@@ -11,11 +11,22 @@ struct InitWishListView: View {
     
     @Environment(\.dismiss) var dissmiss
     
-    @State var wishProduct: String = ""
-    @State var productName: String = ""
-    @State var price: String = ""
-    @State var isDisplayWish: Bool = false
-    @State var howMany: Int = 1
+    @State private var wishProduct: String = ""
+    @State private var productName: String = ""
+    @State private var price: String = ""
+    @State private var isDisplayWish: Bool = false
+    @State private var howMany: Int = 1
+    
+    
+    @FocusState private var isFocus: Bool
+    
+    var isDoneButtonAbled: Bool{
+        if isDisplayWish{
+            return (productName.isEmpty || price.isEmpty) ? true : false
+        }else{
+            return wishProduct.isEmpty
+        }
+    }
     var body: some View {
         VStack{
             HStack{
@@ -44,7 +55,9 @@ struct InitWishListView: View {
                     Text("가격")
                     TextField("금액", text: $price)
                         .textFieldStyle(.roundedBorder)
+                        .keyboardType(.numberPad)
                         .padding(.bottom)
+                        .focused($isFocus)
                     Text("개수")
                     HStack{
                         Spacer()
@@ -93,8 +106,12 @@ struct InitWishListView: View {
                 }
             }
             .padding()
+            .disabled(isDoneButtonAbled)
         }
         .padding()
+        .onTapGesture {
+            isFocus.toggle()
+        }
         .navigationBarBackButtonHidden()
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
