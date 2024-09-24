@@ -17,6 +17,7 @@
 		CE0CE3522CA2561700D6BB9D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE0CE3512CA2561700D6BB9D /* Preview Assets.xcassets */; };
 		CE0CE35E2CA2578C00D6BB9D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0CE35D2CA2578C00D6BB9D /* MainView.swift */; };
 		CE0CE3642CA2580000D6BB9D /* MainView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0CE3632CA2580000D6BB9D /* MainView2.swift */; };
+		FB0D45522CA273D300AD476E /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0D45512CA273D300AD476E /* ItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		CE0CE3512CA2561700D6BB9D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CE0CE35D2CA2578C00D6BB9D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		CE0CE3632CA2580000D6BB9D /* MainView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView2.swift; sourceTree = "<group>"; };
+		FB0D45512CA273D300AD476E /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				CE0CE3632CA2580000D6BB9D /* MainView2.swift */,
+				FB0D45512CA273D300AD476E /* ItemView.swift */,
 			);
 			path = MainView2;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 				CE0CE3642CA2580000D6BB9D /* MainView2.swift in Sources */,
 				CE0CE34D2CA2561600D6BB9D /* ContentView.swift in Sources */,
 				CE0CE35E2CA2578C00D6BB9D /* MainView.swift in Sources */,
+				FB0D45522CA273D300AD476E /* ItemView.swift in Sources */,
 				CE0CE34B2CA2561600D6BB9D /* TimoneyApp.swift in Sources */,
 				2584020E2CA25ED2003A4B6B /* InitSalaryInputView.swift in Sources */,
 				258402122CA2828C003A4B6B /* InitDateInputView.swift in Sources */,
