@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2584020C2CA25E86003A4B6B /* InitalizingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2584020B2CA25E86003A4B6B /* InitalizingView.swift */; };
+		2584020E2CA25ED2003A4B6B /* InitSalaryInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2584020D2CA25ED2003A4B6B /* InitSalaryInputView.swift */; };
+		258402102CA25FF4003A4B6B /* InitWishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2584020F2CA25FF4003A4B6B /* InitWishListView.swift */; };
+		258402122CA2828C003A4B6B /* InitDateInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258402112CA2828C003A4B6B /* InitDateInputView.swift */; };
 		CE0CE34B2CA2561600D6BB9D /* TimoneyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0CE34A2CA2561600D6BB9D /* TimoneyApp.swift */; };
 		CE0CE34D2CA2561600D6BB9D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0CE34C2CA2561600D6BB9D /* ContentView.swift */; };
 		CE0CE34F2CA2561700D6BB9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE0CE34E2CA2561700D6BB9D /* Assets.xcassets */; };
@@ -15,9 +19,14 @@
 		CE0CE3642CA2580000D6BB9D /* MainView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0CE3632CA2580000D6BB9D /* MainView2.swift */; };
 		CE0CE3672CA25C8B00D6BB9D /* addWishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0CE3662CA25C8B00D6BB9D /* addWishListView.swift */; };
 		CE0CE3692CA25F6000D6BB9D /* addWishListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0CE3682CA25F6000D6BB9D /* addWishListModel.swift */; };
+		FB0D45522CA273D300AD476E /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0D45512CA273D300AD476E /* ItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2584020B2CA25E86003A4B6B /* InitalizingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitalizingView.swift; sourceTree = "<group>"; };
+		2584020D2CA25ED2003A4B6B /* InitSalaryInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitSalaryInputView.swift; sourceTree = "<group>"; };
+		2584020F2CA25FF4003A4B6B /* InitWishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitWishListView.swift; sourceTree = "<group>"; };
+		258402112CA2828C003A4B6B /* InitDateInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitDateInputView.swift; sourceTree = "<group>"; };
 		CE0CE3472CA2561600D6BB9D /* Timoney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timoney.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE0CE34A2CA2561600D6BB9D /* TimoneyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimoneyApp.swift; sourceTree = "<group>"; };
 		CE0CE34C2CA2561600D6BB9D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -27,6 +36,7 @@
 		CE0CE3632CA2580000D6BB9D /* MainView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView2.swift; sourceTree = "<group>"; };
 		CE0CE3662CA25C8B00D6BB9D /* addWishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addWishListView.swift; sourceTree = "<group>"; };
 		CE0CE3682CA25F6000D6BB9D /* addWishListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addWishListModel.swift; sourceTree = "<group>"; };
+		FB0D45512CA273D300AD476E /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +50,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		258402092CA25E51003A4B6B /* InitalizingView */ = {
+			isa = PBXGroup;
+			children = (
+				2584020B2CA25E86003A4B6B /* InitalizingView.swift */,
+				2584020D2CA25ED2003A4B6B /* InitSalaryInputView.swift */,
+				258402112CA2828C003A4B6B /* InitDateInputView.swift */,
+				2584020F2CA25FF4003A4B6B /* InitWishListView.swift */,
+			);
+			path = InitalizingView;
+			sourceTree = "<group>";
+		};
 		CE0CE33E2CA2561600D6BB9D = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +102,7 @@
 		CE0CE3582CA256D100D6BB9D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				258402092CA25E51003A4B6B /* InitalizingView */,
 				CE0CE3602CA257AD00D6BB9D /* MainView */,
 				CE0CE3612CA257E300D6BB9D /* MainView2 */,
 				CE0CE35F2CA2579F00D6BB9D /* WishListView */,
@@ -123,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				CE0CE3632CA2580000D6BB9D /* MainView2.swift */,
+				FB0D45512CA273D300AD476E /* ItemView.swift */,
 			);
 			path = MainView2;
 			sourceTree = "<group>";
@@ -210,7 +233,15 @@
 				CE0CE34D2CA2561600D6BB9D /* ContentView.swift in Sources */,
 				CE0CE35E2CA2578C00D6BB9D /* MainView.swift in Sources */,
 				CE0CE3692CA25F6000D6BB9D /* addWishListModel.swift in Sources */,
+				258402102CA25FF4003A4B6B /* InitWishListView.swift in Sources */,
+				2584020C2CA25E86003A4B6B /* InitalizingView.swift in Sources */,
+				CE0CE3642CA2580000D6BB9D /* MainView2.swift in Sources */,
+				CE0CE34D2CA2561600D6BB9D /* ContentView.swift in Sources */,
+				CE0CE35E2CA2578C00D6BB9D /* MainView.swift in Sources */,
+				FB0D45522CA273D300AD476E /* ItemView.swift in Sources */,
 				CE0CE34B2CA2561600D6BB9D /* TimoneyApp.swift in Sources */,
+				2584020E2CA25ED2003A4B6B /* InitSalaryInputView.swift in Sources */,
+				258402122CA2828C003A4B6B /* InitDateInputView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
