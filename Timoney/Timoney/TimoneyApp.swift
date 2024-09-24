@@ -11,7 +11,8 @@ import SwiftUI
 struct TimoneyApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            //ContentView()
+            addWishListView()
         }
     }
 }
