@@ -55,6 +55,7 @@
 		CE0CE3492CA2561600D6BB9D /* Timoney */ = {
 			isa = PBXGroup;
 			children = (
+				CE0CE3652CA2586300D6BB9D /* WishListModel */,
 				CE0CE3592CA256D800D6BB9D /* Model */,
 				CE0CE3582CA256D100D6BB9D /* View */,
 				CE0CE34A2CA2561600D6BB9D /* TimoneyApp.swift */,
@@ -119,6 +120,13 @@
 				CE0CE3632CA2580000D6BB9D /* MainView2.swift */,
 			);
 			path = MainView2;
+			sourceTree = "<group>";
+		};
+		CE0CE3652CA2586300D6BB9D /* WishListModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = WishListModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
