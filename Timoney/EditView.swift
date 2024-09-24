@@ -30,12 +30,12 @@ struct EditView: View {
                     
                     //33,38줄 주석 풀기
                     
-//                    NavigationLink(destination: addWishListView()) {
+                    NavigationLink(destination: addWishListView()) {
                         Text("+ 위시리스트 추가")
                             .font(.title2)
                             .fontWeight(.light)
                             .foregroundColor(Color(red: 3/255, green: 78/255, blue: 43/255))
-//                    }
+                    }
                     .padding(20)
                     .padding(.trailing, 150)
                 }

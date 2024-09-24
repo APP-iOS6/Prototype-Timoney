@@ -19,6 +19,7 @@ struct InitWishListView: View {
     
     
     @FocusState private var isFocus: Bool
+
     
     var isDoneButtonAbled: Bool{
         if isDisplayWish{
@@ -99,8 +100,10 @@ struct InitWishListView: View {
                     Image(systemName: "arrowtriangle.right.fill")
                 }
             }
+            
             Button{
                 isFocus = false
+                
             }label:{
                 ZStack{
                     RoundedRectangle(cornerRadius: 10)

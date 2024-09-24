@@ -7,11 +7,10 @@
 
 import SwiftUI
 
-struct InitalizingView: View {
+struct InitalizingView: View {    
     var body: some View {
         NavigationStack{
             InitSalaryInputView()
-                
         }
     }
 }
