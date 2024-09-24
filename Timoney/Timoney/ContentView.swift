@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct ContentView: View {   
+    @AppStorage("firstLaunch") var isFirstLaunch: Bool = false
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        if isFirstLaunch {
+            //MainView()
+            MainView()
+        } else {
+            InitalizingView()
         }
-        .padding()
     }
 }
 
