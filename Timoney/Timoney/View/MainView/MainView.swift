@@ -109,6 +109,7 @@ struct MainView: View {
                         Circle()
                             .fill(Color.gray)
                             .frame(width: 30, height: 30)
+
                     }
                 }
                 
@@ -116,23 +117,37 @@ struct MainView: View {
                 
                 NavigationLink(destination: InventoryView()) {
                     HStack {
-                            Image(systemName: "bag")
-                                .font(.title2)
-                                .foregroundColor(.white)
-                            Text("나의 위시리스트")
-                                .font(.title3)
-                                .fontWeight(.semibold)
-                                .foregroundColor(.white)
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                                .font(.title2)
-                                .foregroundColor(.white)
-                        }
-                        .padding()
-                        .frame(maxWidth: .infinity, minHeight: 40)
-                        .background(Color.accentColor.opacity(0.9))
-                        .cornerRadius(15)
+                        Image(systemName: "bag")
+                            .foregroundColor(.white)
+                        Text("나의 위시리스트")
+                            .foregroundColor(.white)
                     }
+                    .padding()
+                    .background(Color.accentColor.opacity(0.7))
+                    .cornerRadius(10)
+                }  
+//                 Spacer()
+                
+//                 NavigationLink(destination: InventoryView()) {
+//                     HStack {
+//                             Image(systemName: "bag")
+//                                 .font(.title2)
+//                                 .foregroundColor(.white)
+//                             Text("나의 위시리스트")
+//                                 .font(.title3)
+//                                 .fontWeight(.semibold)
+//                                 .foregroundColor(.white)
+//                             Spacer()
+//                             Image(systemName: "chevron.right")
+//                                 .font(.title2)
+//                                 .foregroundColor(.white)
+//                         }
+//                         .padding()
+//                         .frame(maxWidth: .infinity, minHeight: 40)
+//                         .background(Color.accentColor.opacity(0.9))
+//                         .cornerRadius(15)
+//                     }
+
             }
             .padding()
             .onAppear {
