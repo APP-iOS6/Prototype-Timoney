@@ -11,8 +11,8 @@ struct ContentView: View {
     @AppStorage("firstLaunch") var isFirstLaunch: Bool = false
     var body: some View {
         if isFirstLaunch {
-            MainView()
-            //MainView2()
+            //MainView()
+            MainView2()
         } else {
             InitalizingView()
         }

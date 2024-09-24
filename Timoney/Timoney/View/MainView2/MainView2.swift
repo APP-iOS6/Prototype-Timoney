@@ -43,6 +43,10 @@ struct MainView2: View {
                         //금액
                         Text("현재까지 모인 금액")
                         Text("\(Int(money))원")
+                            .contentTransition(.numericText())
+                            .transaction { t in
+                                t.animation = .default
+                            }
                             .font(.largeTitle)
                         
                         TabView {

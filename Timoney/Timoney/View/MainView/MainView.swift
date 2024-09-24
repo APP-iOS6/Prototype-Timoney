@@ -39,6 +39,10 @@ struct MainView: View {
                 
                 // 돈 표시
                 Text("\(Int(amount))원")
+                    .contentTransition(.numericText())
+                    .transaction { t in
+                        t.animation = .default
+                    }
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .shadow(color: Color.black.opacity(0.3), radius: 3, x: 0, y: 5)
@@ -86,7 +90,11 @@ struct MainView: View {
                 Text("\(itemText)까지 \(calculateRemainingTime())분 남았습니다!")
                     .font(.headline)
                     .foregroundColor(.gray)
-                
+                    .contentTransition(.numericText())
+                    .transaction { t in
+                        t.animation = .default
+                    }
+                    
                 Spacer()
                 
                 HStack {

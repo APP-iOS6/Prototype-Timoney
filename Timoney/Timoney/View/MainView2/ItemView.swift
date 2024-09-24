@@ -40,6 +40,10 @@ struct ItemView: View {
                     .padding(.top,-15)
                 if money < item.price {
                     Text("\(item.name) 구매 가능까지 \(getLeftTime())남았습니다.")
+                        .contentTransition(.numericText())
+                        .transaction { t in
+                            t.animation = .default
+                        }
                 } else {
                     Text("\(item.name)을(를) \(Int(money/item.price))개 구매할 수 있습니다.")
                 }
