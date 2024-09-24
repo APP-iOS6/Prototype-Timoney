@@ -15,5 +15,3 @@ struct TimoneyApp: App {
         }
     }
 }
-
-
