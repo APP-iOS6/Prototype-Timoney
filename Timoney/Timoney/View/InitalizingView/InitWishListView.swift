@@ -52,12 +52,16 @@ struct InitWishListView: View {
                     TextField("이름", text: $productName)
                         .textFieldStyle(.roundedBorder)
                         .padding(.bottom)
+                        .autocorrectionDisabled()
                     Text("가격")
                     TextField("금액", text: $price)
                         .textFieldStyle(.roundedBorder)
                         .keyboardType(.numberPad)
                         .padding(.bottom)
                         .focused($isFocus)
+                        .onSubmit {
+                                print("dddd")
+                        }
                     Text("개수")
                     HStack{
                         Spacer()
@@ -96,7 +100,7 @@ struct InitWishListView: View {
                 }
             }
             Button{
-                
+                isFocus = false
             }label:{
                 ZStack{
                     RoundedRectangle(cornerRadius: 10)
@@ -109,9 +113,6 @@ struct InitWishListView: View {
             .disabled(isDoneButtonAbled)
         }
         .padding()
-        .onTapGesture {
-            isFocus.toggle()
-        }
         .navigationBarBackButtonHidden()
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {

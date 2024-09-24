@@ -14,6 +14,8 @@ struct InitDateInputView: View {
     @State var startDate: Date = .now
     @State var endDate: Date = .now
     
+    
+    
     var body: some View {
         VStack{
             HStack{
@@ -51,7 +53,7 @@ struct InitDateInputView: View {
                         .padding()
                 }
                 Divider()
-                Text("일 간격으로 계산됩니다")
+                Text("30일 간격으로 계산됩니다")
             }
             
             Spacer()
