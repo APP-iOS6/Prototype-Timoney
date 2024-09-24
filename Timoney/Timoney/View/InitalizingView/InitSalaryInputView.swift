@@ -48,7 +48,7 @@ struct InitSalaryInputView: View {
                     RoundedRectangle(cornerRadius: 10)
                         .frame(width: 100, height: 50)
                     Text("다음으로")
-                        .colorInvert()
+                        .foregroundStyle(.white)
                 }
             }
             .disabled(salary.isEmpty)
