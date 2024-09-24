@@ -19,70 +19,72 @@ struct MainView2: View {
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
-        GeometryReader { proxy in
-            VStack {
-                HStack {
-                    Spacer()
-                    Button {
-                        
-                    } label: {
-                        Image(systemName: "gearshape")
-                            .font(.system(size: 24))
-                            .padding()
-                    }
-                }
-                .frame(width: .infinity, height: proxy.size.height * 0.05)
-                
-                //날짜
-                Text("24.09.20 ~ 24.09.24")
-                    .font(.system(size: 14))
-                    .foregroundStyle(.gray)
-                    .padding()
-                
-                //금액
-                Text("현재까지 모인 금액")
-                Text("\(Int(money))원")
-                    .font(.largeTitle)
-                
-                TabView {
-                    ForEach(items) { item in
-                        ItemView(item: item, money: money, pay: pay)
-                        
-                    }
-                }
-                .tabViewStyle(.page)
-                .frame(width: .infinity, height: proxy.size.height * 0.6)
-                
-                Button {
-                    
-                } label: {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 20)
-                            .foregroundStyle(.accent)
-                            .opacity(0.8)
+        NavigationStack {
+            GeometryReader { proxy in
+                    VStack {
                         HStack {
-                            Image(systemName: "bag.fill")
-                            Text("위시리스트")
                             Spacer()
-                            Image(systemName: "chevron.right")
+                            Button {
+                                
+                            } label: {
+                                Image(systemName: "gearshape")
+                                    .font(.system(size: 24))
+                                    .padding()
+                            }
                         }
-                        .foregroundStyle(.white)
-                        .font(.system(size: 20))
-                        .padding()
+                        .frame(width: proxy.size.width, height: proxy.size.height * 0.05)
+                        
+                        //날짜
+                        Text("24.09.20 ~ 24.09.24")
+                            .font(.system(size: 14))
+                            .foregroundStyle(.gray)
+                            .padding()
+                        
+                        //금액
+                        Text("현재까지 모인 금액")
+                        Text("\(Int(money))원")
+                            .font(.largeTitle)
+                        
+                        TabView {
+                            ForEach(items) { item in
+                                ItemView(item: item, money: money, pay: pay)
+                                
+                            }
+                        }
+                        .tabViewStyle(.page)
+                        .frame(width: proxy.size.width, height: proxy.size.height * 0.6)
+                        
+                        NavigationLink(destination: InventoryView()) {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 20)
+                                    .foregroundStyle(.accent)
+                                    .opacity(0.8)
+                                HStack {
+                                    Image(systemName: "bag.fill")
+                                    Text("위시리스트")
+                                    Spacer()
+                                    Image(systemName: "chevron.right")
+                                }
+                                .foregroundStyle(.white)
+                                .font(.system(size: 20))
+                                .padding()
+                            }
+                            .frame(width: proxy.size.width * 0.95, height: proxy.size.height * 0.08)
+                        }
+                        
+                
+                        Spacer()
                     }
-                    .frame(width: proxy.size.width * 0.95, height: proxy.size.height * 0.08)
+                    .onReceive(timer) { _ in
+                        money += pay
+                    }
                 }
-                Spacer()
-            }
-            .onReceive(timer) { _ in
-                money += pay
-            }
+                .onAppear {
+                    UIPageControl.appearance().currentPageIndicatorTintColor = .black
+                    UIPageControl.appearance().pageIndicatorTintColor = UIColor.black.withAlphaComponent(0.3)
+                }
+                }
         }
-        .onAppear {
-            UIPageControl.appearance().currentPageIndicatorTintColor = .black
-            UIPageControl.appearance().pageIndicatorTintColor = UIColor.black.withAlphaComponent(0.3)
-        }
-    }
 }
 
 
@@ -92,11 +94,11 @@ struct WishItem : Identifiable{
     var imgName: String
     var price: Double
     
-    init(name: String, imgName: String, price: Double) {
-        self.name = name
-        self.imgName = imgName
-        self.price = price
-    }
+//    init(name: String, imgName: String, price: Double) {
+//        self.name = name
+//        self.imgName = imgName
+//        self.price = price
+//    }
 }
 
 #Preview {

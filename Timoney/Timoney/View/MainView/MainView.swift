@@ -13,115 +13,115 @@ struct MainView: View {
     let progressThreshold: Double = 1.0 // 게이지 최대치
     
     var body: some View {
-        VStack(spacing: 20) {
-            HStack {
-                Spacer()
-                Image("AppIcon")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: 40)
-                Spacer()
-                
-                Button(action: {
-                }) {
-                    Image(systemName: "gearshape.fill")
-                        .font(.title2)
-                        .foregroundColor(.gray)
-                }
-            }
-            .padding(.horizontal)
-                
-            // 날짜 범위
-            Text("2024.09.20 ~ 2024.09.24")
-                .font(.subheadline)
-                .foregroundColor(.gray)
-            
-            // 돈 표시
-            Text("\(Int(amount))원")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .shadow(color: Color.black.opacity(0.3), radius: 3, x: 0, y: 5)
-            // 가운데 이미지
-            Image(imageName)
-                .resizable()
-                .frame(width: 250, height: 250)
-                .scaledToFit()
-            
-            // 캡슐 형태의 게이지 표시 및 세로 선 추가
-            HStack {
-                Text("9/23")
-                ZStack(alignment: .leading) {
-                    Capsule()
-                        .frame(height: 20) // 세로 크기 20
-                        .foregroundColor(.gray.opacity(0.3)) // 배경색
-                    Capsule()
-                        .frame(width: progressWidth(), height: 20) // 세로 크기 20, 진행도에 따른 너비
-                        .foregroundColor(.accentColor) // 진행 색상
-                    
-                    // 가방, 텀블러, 마이크 기준선 추가
-                    HStack {
-                        verticalLine(at: 0.55) // 가방
-                        verticalLine(at: 0.65) // 텀블러
-                        verticalLine(at: 0.89) // 마이크
-                    }
-                    
-                    HStack {
-                        Text("가방")
-                            .offset(x: 120, y: -20)
-                            .font(.footnote)
-                        Text("텀블러")
-                            .offset(x: 120, y: -20)
-                            .font(.footnote)
-                        Text("마이크")
-                            .offset(x: 145, y: -20)
-                            .font(.footnote)
-                    }
-                }
-                Text("10/22")
-            }
-            .padding()
-            
-            // 남은 시간 표시
-            Text("\(itemText)까지 \(calculateRemainingTime())분 남았습니다!")
-                .font(.headline)
-                .foregroundColor(.gray)
-            
-            Spacer()
-            
-            HStack {
-                Button(action: {
-                }) {
-                    Circle()
-                        .fill(Color.accentColor.opacity(0.7))
-                        .frame(width: 30, height: 30)
-                }
-                Button(action: {
-                }) {
-                    Circle()
-                        .fill(Color.gray)
-                        .frame(width: 30, height: 30)
-                }
-            }
-            
-            Spacer()
-            
-            // 위시리스트 버튼
-            Button(action: {
-            }) {
+        NavigationStack {
+            VStack(spacing: 20) {
                 HStack {
-                    Image(systemName: "bag")
-                        .foregroundColor(.white)
-                    Text("나의 위시리스트")
-                        .foregroundColor(.white)
+                    Spacer()
+                    Image("AppIcon")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 40)
+                    Spacer()
+                    
+                    Button(action: {
+                    }) {
+                        Image(systemName: "gearshape.fill")
+                            .font(.title2)
+                            .foregroundColor(.gray)
+                    }
+                }
+                .padding(.horizontal)
+                    
+                // 날짜 범위
+                Text("2024.09.20 ~ 2024.09.24")
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
+                
+                // 돈 표시
+                Text("\(Int(amount))원")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .shadow(color: Color.black.opacity(0.3), radius: 3, x: 0, y: 5)
+                // 가운데 이미지
+                Image(imageName)
+                    .resizable()
+                    .frame(width: 250, height: 250)
+                    .scaledToFit()
+                
+                // 캡슐 형태의 게이지 표시 및 세로 선 추가
+                HStack {
+                    Text("9/23")
+                    ZStack(alignment: .leading) {
+                        Capsule()
+                            .frame(height: 20) // 세로 크기 20
+                            .foregroundColor(.gray.opacity(0.3)) // 배경색
+                        Capsule()
+                            .frame(width: progressWidth(), height: 20) // 세로 크기 20, 진행도에 따른 너비
+                            .foregroundColor(.accentColor) // 진행 색상
+                        
+                        // 가방, 텀블러, 마이크 기준선 추가
+                        HStack {
+                            verticalLine(at: 0.55) // 가방
+                            verticalLine(at: 0.65) // 텀블러
+                            verticalLine(at: 0.89) // 마이크
+                        }
+                        
+                        HStack {
+                            Text("가방")
+                                .offset(x: 120, y: -20)
+                                .font(.footnote)
+                            Text("텀블러")
+                                .offset(x: 120, y: -20)
+                                .font(.footnote)
+                            Text("마이크")
+                                .offset(x: 145, y: -20)
+                                .font(.footnote)
+                        }
+                    }
+                    Text("10/22")
                 }
                 .padding()
-                .background(Color.accentColor.opacity(0.7))
-                .cornerRadius(10)
+                
+                // 남은 시간 표시
+                Text("\(itemText)까지 \(calculateRemainingTime())분 남았습니다!")
+                    .font(.headline)
+                    .foregroundColor(.gray)
+                
+                Spacer()
+                
+                HStack {
+                    Button(action: {
+                    }) {
+                        Circle()
+                            .fill(Color.accentColor.opacity(0.7))
+                            .frame(width: 30, height: 30)
+                    }
+                    Button(action: {
+                    }) {
+                        Circle()
+                            .fill(Color.gray)
+                            .frame(width: 30, height: 30)
+                    }
+                }
+                
+                Spacer()
+                
+                NavigationLink(destination: InventoryView()) {
+                    HStack {
+                        Image(systemName: "bag")
+                            .foregroundColor(.white)
+                        Text("나의 위시리스트")
+                            .foregroundColor(.white)
+                    }
+                    .padding()
+                    .background(Color.accentColor.opacity(0.7))
+                    .cornerRadius(10)
+                }
             }
-        }
-        .padding()
-        .onAppear {
-            startTimer()
+            .padding()
+            .onAppear {
+                startTimer()
+            }
         }
     }
     

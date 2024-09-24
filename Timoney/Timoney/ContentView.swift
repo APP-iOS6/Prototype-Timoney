@@ -7,9 +7,15 @@
 
 import SwiftUI
 
-struct ContentView: View {    
+struct ContentView: View {   
+    @AppStorage("firstLaunch") var isFirstLaunch: Bool = false
     var body: some View {
-        InitalizingView()
+        if isFirstLaunch {
+            MainView()
+            //MainView2()
+        } else {
+            InitalizingView()
+        }
     }
 }
 

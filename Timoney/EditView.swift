@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct EditView: View {
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
         NavigationStack {
             Text("위시리스트 수정")
@@ -41,18 +43,21 @@ struct EditView: View {
                 }
             }
             
-            NavigationLink(destination: InventoryView()) {
+            Button(action: {
+                dismiss()
+            }, label: {
                 Text("저장하기")
                     .frame(width: 100, height: 40)
                     .background(Color(red: 3/255, green: 78/255, blue: 43/255))
                     .foregroundColor(.white)
                     .cornerRadius(8)
                     .shadow(color: .black.opacity(0.2), radius: 5, x: 0, y: 3)
-            }
+            })
             .padding(.bottom, 20)
+        
             
         }
-        .navigationBarBackButtonHidden(true)
+         .navigationBarBackButtonHidden(true)
     }
 }
 

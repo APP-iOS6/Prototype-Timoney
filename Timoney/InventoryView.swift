@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct InventoryView: View {
+    @State var isSheetShowing: Bool = false
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -51,19 +53,26 @@ struct InventoryView: View {
                     }
                 }
                 
+                
                 // 수정하기 버튼
-                NavigationLink(destination: EditView()) {
+                Button(action: {
+                    isSheetShowing.toggle()
+                }, label: {
                     Text("수정하기")
                         .frame(width: 100, height: 40)
                         .background(Color(red: 3/255, green: 78/255, blue: 43/255))
                         .foregroundColor(.white)
                         .cornerRadius(8)
                         .shadow(color: .black.opacity(0.2), radius: 5, x: 0, y: 3)
-                }
+                })
+                .sheet(isPresented: $isSheetShowing, content: {
+                    EditView()
+                })
                 .padding(.bottom, 20)
+                
             }
         }
-        .navigationBarBackButtonHidden(true)
+        // .navigationBarBackButtonHidden(true)
     }
     
 struct ItemView: View {

@@ -17,6 +17,7 @@ struct InitWishListView: View {
     @State private var isDisplayWish: Bool = false
     @State private var howMany: Int = 1
     
+    @AppStorage("firstLaunch") var firstLunch: Bool!
     
     @FocusState private var isFocus: Bool
 
@@ -94,6 +95,7 @@ struct InitWishListView: View {
             Toggle(isOn: $isDisplayWish) {}
                 .labelsHidden()
             Button{
+                firstLunch = true
             }label: {
                 HStack{
                     Text("건너뛰기")
