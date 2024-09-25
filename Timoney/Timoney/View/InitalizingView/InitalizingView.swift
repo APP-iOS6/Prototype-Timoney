@@ -10,7 +10,7 @@ import SwiftUI
 struct InitalizingView: View {    
     var body: some View {
         NavigationStack{
-            InitSalaryInputView()
+            InitExplaneView()
         }
     }
 }
