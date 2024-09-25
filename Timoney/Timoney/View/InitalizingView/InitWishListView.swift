@@ -58,9 +58,6 @@ struct InitWishListView: View {
                                 .keyboardType(.numberPad)
                                 .padding(.bottom)
                                 .focused($isFocus)
-                                .onSubmit {
-                                    print("dddd")
-                                }
                             Text("개수")
                             HStack{
                                 Spacer()
@@ -79,6 +76,7 @@ struct InitWishListView: View {
                     }else{
                         HStack{
                             TextField("검색", text: $wishProduct)
+                                .focused($isFocus)
                                 .padding()
                                 .onChange(of: wishProduct) {
                                     isSelected = false
@@ -90,7 +88,7 @@ struct InitWishListView: View {
                             .stroke(lineWidth: 1)
                             .foregroundStyle(.secondary))
                         .padding()
-                        InitWishSearchListView(search: $wishProduct, isSeleted: $isSelected)
+                        InitWishSearchListView(search: $wishProduct, isSelected: $isSelected)
                     }
                     
                     HStack{
@@ -160,6 +158,7 @@ struct InitWishListView: View {
         }.onTapGesture {
             print("tab")
             isFocus = false
+            isSelected = true
         }
     }
 }
