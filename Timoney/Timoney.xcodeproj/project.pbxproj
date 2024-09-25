@@ -11,6 +11,9 @@
 		2584020E2CA25ED2003A4B6B /* InitSalaryInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2584020D2CA25ED2003A4B6B /* InitSalaryInputView.swift */; };
 		258402102CA25FF4003A4B6B /* InitWishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2584020F2CA25FF4003A4B6B /* InitWishListView.swift */; };
 		258402122CA2828C003A4B6B /* InitDateInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258402112CA2828C003A4B6B /* InitDateInputView.swift */; };
+		258402BB2CA3DB70003A4B6B /* InitExplaneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258402BA2CA3DB70003A4B6B /* InitExplaneView.swift */; };
+		258402BD2CA3DC0B003A4B6B /* InitBaseSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258402BC2CA3DC0B003A4B6B /* InitBaseSettingView.swift */; };
+		258402BF2CA3E35F003A4B6B /* InitWishSearchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258402BE2CA3E35F003A4B6B /* InitWishSearchListView.swift */; };
 		77FA67622CA25D070007F3B6 /* InventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FA67612CA25D070007F3B6 /* InventoryView.swift */; };
 		77FA67642CA25D3C0007F3B6 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FA67632CA25D3C0007F3B6 /* EditView.swift */; };
 		CE0CE34B2CA2561600D6BB9D /* TimoneyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0CE34A2CA2561600D6BB9D /* TimoneyApp.swift */; };
@@ -29,6 +32,9 @@
 		2584020D2CA25ED2003A4B6B /* InitSalaryInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitSalaryInputView.swift; sourceTree = "<group>"; };
 		2584020F2CA25FF4003A4B6B /* InitWishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitWishListView.swift; sourceTree = "<group>"; };
 		258402112CA2828C003A4B6B /* InitDateInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitDateInputView.swift; sourceTree = "<group>"; };
+		258402BA2CA3DB70003A4B6B /* InitExplaneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitExplaneView.swift; sourceTree = "<group>"; };
+		258402BC2CA3DC0B003A4B6B /* InitBaseSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitBaseSettingView.swift; sourceTree = "<group>"; };
+		258402BE2CA3E35F003A4B6B /* InitWishSearchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitWishSearchListView.swift; sourceTree = "<group>"; };
 		77FA67612CA25D070007F3B6 /* InventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryView.swift; sourceTree = SOURCE_ROOT; };
 		77FA67632CA25D3C0007F3B6 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = SOURCE_ROOT; };
 		CE0CE3472CA2561600D6BB9D /* Timoney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timoney.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +67,9 @@
 				2584020D2CA25ED2003A4B6B /* InitSalaryInputView.swift */,
 				258402112CA2828C003A4B6B /* InitDateInputView.swift */,
 				2584020F2CA25FF4003A4B6B /* InitWishListView.swift */,
+				258402BA2CA3DB70003A4B6B /* InitExplaneView.swift */,
+				258402BC2CA3DC0B003A4B6B /* InitBaseSettingView.swift */,
+				258402BE2CA3E35F003A4B6B /* InitWishSearchListView.swift */,
 			);
 			path = InitalizingView;
 			sourceTree = "<group>";
@@ -240,9 +249,12 @@
 				CE0CE35E2CA2578C00D6BB9D /* MainView.swift in Sources */,
 				CE0CE3692CA25F6000D6BB9D /* addWishListModel.swift in Sources */,
 				258402102CA25FF4003A4B6B /* InitWishListView.swift in Sources */,
+				258402BD2CA3DC0B003A4B6B /* InitBaseSettingView.swift in Sources */,
 				2584020C2CA25E86003A4B6B /* InitalizingView.swift in Sources */,
 				CE0CE3642CA2580000D6BB9D /* MainView2.swift in Sources */,
 				77FA67622CA25D070007F3B6 /* InventoryView.swift in Sources */,
+				258402BF2CA3E35F003A4B6B /* InitWishSearchListView.swift in Sources */,
+				258402BB2CA3DB70003A4B6B /* InitExplaneView.swift in Sources */,
 				77FA67642CA25D3C0007F3B6 /* EditView.swift in Sources */,
 				CE0CE34D2CA2561600D6BB9D /* ContentView.swift in Sources */,
 				CE0CE35E2CA2578C00D6BB9D /* MainView.swift in Sources */,

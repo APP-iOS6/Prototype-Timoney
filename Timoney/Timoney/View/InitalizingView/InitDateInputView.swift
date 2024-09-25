@@ -20,27 +20,27 @@ struct InitDateInputView: View {
     
     var body: some View {
         VStack{
-            HStack{
-                Circle()
-                    .frame(width: 20, height: 20)
-                    .foregroundStyle(.secondary)
-                Circle()
-                    .frame(width: 20, height: 20)
-                    .foregroundStyle(.accent)
-                Circle()
-                    .frame(width: 20, height: 20)
-                    .foregroundStyle(.secondary)
-                    
-            }
-            
-            Spacer()
+//            HStack{
+//                Circle()
+//                    .frame(width: 20, height: 20)
+//                    .foregroundStyle(.secondary)
+//                Circle()
+//                    .frame(width: 20, height: 20)
+//                    .foregroundStyle(.accent)
+//                Circle()
+//                    .frame(width: 20, height: 20)
+//                    .foregroundStyle(.secondary)
+//                    
+//            }
+//            
+//            Spacer()
             
             HStack{
                 VStack(alignment: .leading){
                     Text("시작 날짜와")
                     Text("마감 날짜를 선택해주세요.")
                 }
-                .font(.largeTitle)
+                .font(.title)
                 Spacer()
             }
             .padding()
@@ -58,28 +58,28 @@ struct InitDateInputView: View {
                 Text("\(timeInterval)일 간격으로 계산됩니다")
             }
             
-            Spacer()
-            NavigationLink {
-                InitWishListView()
-            } label: {
-                ZStack{
-                    RoundedRectangle(cornerRadius: 10)
-                        .frame(width: 100, height: 50)
-                    Text("다음으로")
-                        .foregroundStyle(.white)
-                }
-            }
-        }
-        .padding()
-        .navigationBarBackButtonHidden()
-        .toolbar {
-            ToolbarItem(placement: .cancellationAction) {
-                Button{
-                    dissmiss()
-                }label: {
-                    Text("이전으로")
-                }
-            }
+//            Spacer()
+//            NavigationLink {
+//                InitWishListView()
+//            } label: {
+//                ZStack{
+//                    RoundedRectangle(cornerRadius: 10)
+//                        .frame(width: 100, height: 50)
+//                    Text("다음으로")
+//                        .foregroundStyle(.white)
+//                }
+//            }
+//        }
+//        .padding()
+//        .navigationBarBackButtonHidden()
+//        .toolbar {
+//            ToolbarItem(placement: .cancellationAction) {
+//                Button{
+//                    dissmiss()
+//                }label: {
+//                    Text("이전으로")
+//                }
+//            }
         }
     }
 }
