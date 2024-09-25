@@ -61,6 +61,7 @@ struct InitWishListView: View {
                             
                         Text("가격")
                         TextField("금액", text: $price)
+                            .multilineTextAlignment(.trailing)
                             .textFieldStyle(.roundedBorder)
                             .keyboardType(.numberPad)
                             .padding(.bottom)
@@ -96,6 +97,13 @@ struct InitWishListView: View {
                     .padding()
                 }
                 Spacer()
+                
+                if isDisplayWish{
+                    Text("검색 해서 찾기")
+                }else{
+                    Text("직접 작성하기")
+                }
+                
                 Toggle(isOn: $isDisplayWish) {}
                     .labelsHidden()
                 Button{
