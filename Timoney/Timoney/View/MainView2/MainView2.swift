@@ -23,16 +23,12 @@ struct MainView2: View {
             GeometryReader { proxy in
                 VStack {
                     HStack {
+                        Spacer()
                         NavigationLink(destination : addWishListView()) {
                             Image(systemName: "plus.app")
                                 .font(.system(size: 24))
                                 .padding(.leading, 15)
                         }
-                        Spacer()
-                        Image("AppIcon")
-                            .resizable()
-                            .scaledToFit()
-                        Spacer()
                         Button {
                             
                         } label: {
