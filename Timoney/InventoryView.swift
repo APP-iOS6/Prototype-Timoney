@@ -14,6 +14,20 @@ struct InventoryView: View {
         NavigationStack {
             ScrollView {
                 VStack {
+                    HStack {
+                        Spacer()
+                        NavigationLink(destination : addWishListView()) {
+                            Image(systemName: "plus")
+                                .font(.system(size: 24))
+                        }
+                        
+                        NavigationLink(destination : EditView()) {
+                            Image(systemName: "pencil")
+                                .font(.system(size: 24))
+                                .padding(.trailing,20)
+                        }
+                    }
+                    
                     Grid(horizontalSpacing: -15, verticalSpacing: 15) {
                         GridRow {
                             ItemUIView2(icon: "3dicons", price: "20,000원", name: "미술용품", progress:"10")
@@ -39,21 +53,21 @@ struct InventoryView: View {
                     }
                     .padding(.top, 20)
                     
-                    // 수정하기 버튼
-                    Button(action: {
-                        isSheetShowing.toggle()
-                    }, label: {
-                        Text("수정하기")
-                            .frame(width: 100, height: 40)
-                            .background(Color(red: 3/255, green: 78/255, blue: 43/255))
-                            .foregroundColor(.white)
-                            .cornerRadius(8)
-                            .shadow(color: .black.opacity(0.2), radius: 5, x: 0, y: 3)
-                    })
-                    .sheet(isPresented: $isSheetShowing, content: {
-                        EditView()
-                    })
-                    .padding(.bottom, 20)
+//                    // 수정하기 버튼
+//                    Button(action: {
+//                        isSheetShowing.toggle()
+//                    }, label: {
+//                        Text("수정하기")
+//                            .frame(width: 100, height: 40)
+//                            .background(Color(red: 3/255, green: 78/255, blue: 43/255))
+//                            .foregroundColor(.white)
+//                            .cornerRadius(8)
+//                            .shadow(color: .black.opacity(0.2), radius: 5, x: 0, y: 3)
+//                    })
+//                    .sheet(isPresented: $isSheetShowing, content: {
+//                        EditView()
+//                    })
+//                    .padding(.bottom, 20)
                 }
             }
             .navigationTitle("위시리스트")
