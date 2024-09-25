@@ -102,9 +102,7 @@ struct ItemView: View {
                         }
                         
                     } else {
-                        Button {
-                            
-                        } label : {
+                        Link(destination: URL(string: "https://www.apple.com/kr/shop/buy-watch/apple-watch" )!) {
                             ZStack {
                                 RoundedRectangle(cornerRadius: 15)
                                     .foregroundStyle(.button)
@@ -116,6 +114,7 @@ struct ItemView: View {
                                         .font(.system(size: 20, weight: .bold))
                                 }
                                 .foregroundStyle(.white)
+                                
                             }
                         }
                     }
