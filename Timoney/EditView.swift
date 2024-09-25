@@ -19,14 +19,14 @@ struct EditView: View {
                     ItemListView(icon: "3dicons-4", price: "38,000원", name: "쇼핑", progress: "Rectangle 106")
                     ItemListView(icon: "bag", price: "521,000원", name: "가방", progress:"Group 8")
                     
-                    NavigationLink(destination: addWishListView()) {
-                        Text("+ 위시리스트 추가")
-                            .font(.title2)
-                            .fontWeight(.light)
-                            .foregroundColor(Color(red: 3/255, green: 78/255, blue: 43/255))
-                    }
-                    .padding(20)
-                    .padding(.trailing, 150)
+//                    NavigationLink(destination: addWishListView()) {
+//                        Text("+ 위시리스트 추가")
+//                            .font(.title2)
+//                            .fontWeight(.light)
+//                            .foregroundColor(Color(red: 3/255, green: 78/255, blue: 43/255))
+//                    }
+//                    .padding(20)
+//                    .padding(.trailing, 150)
                 }
                 .padding(.top,20)
             }
