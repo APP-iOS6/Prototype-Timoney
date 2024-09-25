@@ -7,8 +7,11 @@
 
 import SwiftUI
 
+enum AnimationPhase : CaseIterable {
+    case red, orange, yellow, green, blue, indigo, purple
+}
+
 struct ItemView: View {
-    
     var item: WishItem
     var money: Double
     var pay: Double
@@ -20,32 +23,101 @@ struct ItemView: View {
         }
     }
     
+    var imageName: String {
+        if progressPercent == 100 {
+            return "money_4"
+        } else if progressPercent >= 90 {
+            return "money_3"
+        } else if progressPercent >= 50 {
+            return "money_2"
+        } else {
+            return "money_1"
+        }
+    }
+    
     var body: some View {
         GeometryReader { proxy in
-            VStack {
-                Text(item.name) // 필요 없을거 같기도
-                Image(item.imgName)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                Text("\(Int(item.price))원")
-                    .font(.largeTitle)
-                
-                Text("\(progressPercent)%")
-                    .offset(x: proxy.size.width * 0.01 * CGFloat((Double(progressPercent) * 0.9 - 45)))
-                    .font(.system(size: 14))
-                    .padding(.horizontal)
-                    .padding(.bottom,0)
-                ProgressView(value: money > item.price ? item.price : money, total: item.price)
-                    .padding()
-                    .padding(.top,-15)
-                if money < item.price {
-                    Text("\(item.name) 구매 가능까지 \(getLeftTime())남았습니다.")
-                        .contentTransition(.numericText())
-                        .transaction { t in
-                            t.animation = .default
+            ZStack {
+                VStack {
+                    Image(item.imgName)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                    Text(item.name) // 필요 없을거 같기도
+                        .font(.system(size: 14))
+                    Text("\(Int(item.price))원")
+                        .font(.system(size: 20))
+                    
+                    Text("\(progressPercent)%")
+                        .offset(x: proxy.size.width * 0.01 * CGFloat((Double(progressPercent) * 0.9 - 45)))
+                        .font(.system(size: 14))
+                        .padding(.horizontal)
+                        .padding(.bottom,0)
+                    ProgressView(value: money > item.price ? item.price : money, total: item.price)
+                        .scaleEffect(y:2.5)
+                        .padding()
+                        .padding(.top,-15)
+                    //                        .phaseAnimator(AnimationPhase.allCases) { view, phase in
+                    //                            if money < item.price {
+                    //                                view.accentColor(.accent)
+                    //                            } else {
+                    //                                switch phase {
+                    //                                case .red :
+                    //                                    view.accentColor(.red)
+                    //
+                    //                                case .orange :
+                    //                                    view.accentColor(.orange)
+                    //
+                    //                                case .yellow :
+                    //                                    view.accentColor(.yellow)
+                    //
+                    //                                case .green :
+                    //                                    view.accentColor(.green)
+                    //
+                    //                                case .blue :
+                    //                                    view.accentColor(.blue)
+                    //
+                    //                                case .indigo :
+                    //                                    view.accentColor(.indigo)
+                    //
+                    //                                case .purple :
+                    //                                    view.accentColor(.purple)
+                    //                                }
+                    //                            }
+                    //                        }
+                        .accentColor(money < item.price ? .accent : .button)
+                    
+                    if money < item.price {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 20)
+                                .foregroundStyle(.clear)
+                                .frame(width: proxy.size.width * 0.35, height: proxy.size.height * 0.1)
+                            VStack {
+                                Text("\(item.name) 구매 가능까지")
+                                Text("\(getLeftTime())남았습니다.")
+                                    .contentTransition(.numericText())
+                                    .transaction { t in
+                                        t.animation = .default
+                                    }
+                            }
                         }
-                } else {
-                    Text("\(item.name)을(를) \(Int(money/item.price))개 구매할 수 있습니다.")
+                        
+                    } else {
+                        Link(destination: URL(string: "https://www.apple.com/kr/shop/buy-watch/apple-watch" )!) {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 15)
+                                    .foregroundStyle(.button)
+                                    .frame(width: proxy.size.width * 0.35, height: proxy.size.height * 0.1)
+                                HStack {
+                                    Image(systemName: "bag.fill")
+                                        .font(.system(size: 20))
+                                    Text("구매하기")
+                                        .font(.system(size: 20, weight: .bold))
+                                }
+                                .foregroundStyle(.white)
+                                
+                            }
+                        }
+                    }
                 }
             }
             .frame(width: proxy.size.width, height: proxy.size.height * 0.8)
