@@ -38,7 +38,7 @@ struct InitWishListView: View {
                 VStack{
                     Spacer()
                     VStack(alignment: .leading){
-                        Text("번 금액으로")
+                        Text("돈을 모아서")
                             .fontWeight(.bold)
                         Text("사고 싶은 물건이 있나요?")
                             .fontWeight(.bold)
@@ -50,7 +50,7 @@ struct InitWishListView: View {
                             TextField("이름", text: $productName)
                                 .textFieldStyle(.roundedBorder)
                                 .padding(.bottom)
-                                .keyboardType(.alphabet)
+                                .keyboardType(.default)
                                 .autocorrectionDisabled(true)
                                 .focused($isFocus)
                             

@@ -37,7 +37,7 @@ struct InitExplaneView: View {
             
             Text("")
             
-            Text("열심히 달려온 당신, 지금까지 모은 자신이 얼마인지 궁금하지않나요?")
+            Text("열심히 달려온 당신, 지금까지 모은 자산이 얼마인지 궁금하지않나요?")
                 .font(.title3)
                 .fontWeight(.light)
                 .multilineTextAlignment(.center)

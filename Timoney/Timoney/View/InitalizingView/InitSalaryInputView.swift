@@ -28,8 +28,8 @@ struct InitSalaryInputView: View {
             //            Spacer()
             HStack{
                 VStack(alignment: .leading){
-                    Text("당신의 버는")
-                    Text("금액을 말씀해 주세요.")
+                    Text("위에 입력한 기간동안의 ")
+                    Text("급여를 알려 주세요.")
                 }
                 .fontWeight(.bold)
                 .font(.title)
