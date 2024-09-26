@@ -15,80 +15,90 @@ struct MainView2: View {
         WishItem(name: "시계", imgName: "watch", price: 320000),
     ]
     
-    var pay: Double = 4000 // 월급
+    var pay: Double = 60000 // 월급
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
         NavigationStack {
             GeometryReader { proxy in
-                    VStack {
-                        HStack {
-                            Spacer()
-                            Button {
-                                
-                            } label: {
-                                Image(systemName: "gearshape")
-                                    .font(.system(size: 24))
-                                    .padding()
-                            }
-                        }
-                        .frame(width: proxy.size.width, height: proxy.size.height * 0.05)
-                        
-                        //날짜
-                        Text("24.09.20 ~ 24.09.24")
-                            .font(.system(size: 14))
-                            .foregroundStyle(.gray)
-                            .padding()
-                        
-                        //금액
-                        Text("현재까지 모인 금액")
-                        Text("\(Int(money))원")
-                            .contentTransition(.numericText())
-                            .transaction { t in
-                                t.animation = .default
-                            }
-                            .font(.largeTitle)
-                        
-                        TabView {
-                            ForEach(items) { item in
-                                ItemView(item: item, money: money, pay: pay)
-                                
-                            }
-                        }
-                        .tabViewStyle(.page)
-                        .frame(width: proxy.size.width, height: proxy.size.height * 0.6)
-                        
-                        NavigationLink(destination: InventoryView()) {
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 20)
-                                    .foregroundStyle(.accent)
-                                    .opacity(0.8)
-                                HStack {
-                                    Image(systemName: "bag.fill")
-                                    Text("위시리스트")
-                                    Spacer()
-                                    Image(systemName: "chevron.right")
-                                }
-                                .foregroundStyle(.white)
-                                .font(.system(size: 20))
-                                .padding()
-                            }
-                            .frame(width: proxy.size.width * 0.95, height: proxy.size.height * 0.08)
-                        }
-                        
-                
+                VStack {
+                    HStack {
                         Spacer()
+                        NavigationLink(destination : addWishListView()) {
+                            Image(systemName: "plus.app")
+                                .font(.system(size: 24))
+                                .padding(.leading, 15)
+                        }
+                        Button {
+                            
+                        } label: {
+                            Image(systemName: "gearshape")
+                                .font(.system(size: 24))
+                                .padding(5)
+                                .padding(.trailing, 15)
+                        }
                     }
-                    .onReceive(timer) { _ in
-                        money += pay
+                    .frame(width: proxy.size.width, height: proxy.size.height * 0.05)
+                    
+                    //날짜
+                    Text("24.09.20 ~ 24.09.24")
+                        .font(.system(size: 14))
+                        .foregroundStyle(.gray)
+                        .padding(.top, 30)
+                        .padding(.bottom, 5)
+                    
+                    //금액
+                    Text("현재까지 모인 금액")
+                    Text("\(Int(money))원")
+                        .contentTransition(.numericText())
+                        .transaction { t in
+                            t.animation = .default
+                        }
+                        .font(.system(size: 32, weight:.bold))
+                        .shadow(radius: 3, y: 6)
+                        .padding(.bottom, 30)
+                    
+                    TabView {
+                        ForEach(items) { item in
+                            ItemView(item: item, money: money, pay: pay)
+                            
+                        }
                     }
+                    .tabViewStyle(.page)
+                    .frame(width: proxy.size.width, height: proxy.size.height * 0.55)
+                
+                    NavigationLink(destination: InventoryView()) {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 20)
+                                .foregroundStyle(.accent)
+                                .opacity(0.8)
+                            HStack {
+                                Image(systemName: "list.bullet.clipboard")
+                                Text("위시리스트")
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                            }
+                            .foregroundStyle(.white)
+                            .font(.system(size: 20))
+                            .padding()
+                        }
+                        .frame(width: proxy.size.width * 0.95, height: proxy.size.height * 0.08)
+                        .padding(.top,30)
+                    }
+                    
+                    
+                    Spacer()
                 }
-                .onAppear {
-                    UIPageControl.appearance().currentPageIndicatorTintColor = .black
-                    UIPageControl.appearance().pageIndicatorTintColor = UIColor.black.withAlphaComponent(0.3)
+                .onReceive(timer) { _ in
+                    money += pay
                 }
-                }
+            }
+            .onAppear {
+                UIPageControl.appearance().currentPageIndicatorTintColor = .black
+                UIPageControl.appearance().pageIndicatorTintColor = UIColor.black.withAlphaComponent(0.3)
+            }
         }
+    }
 }
 
 
@@ -98,11 +108,11 @@ struct WishItem : Identifiable{
     var imgName: String
     var price: Double
     
-//    init(name: String, imgName: String, price: Double) {
-//        self.name = name
-//        self.imgName = imgName
-//        self.price = price
-//    }
+    //    init(name: String, imgName: String, price: Double) {
+    //        self.name = name
+    //        self.imgName = imgName
+    //        self.price = price
+    //    }
 }
 
 #Preview {

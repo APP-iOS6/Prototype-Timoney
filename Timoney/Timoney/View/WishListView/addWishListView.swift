@@ -16,6 +16,8 @@ struct addWishListView: View {
             // Text("위시리스트 추가")
             
             ScrollView {
+                
+                
                 TextFieldView(model: $model, title: "물품명")
                 TextFieldView(model: $model, title: "금액")
                 TextFieldView(model: $model, title: "이미지")
@@ -35,14 +37,28 @@ struct addWishListView: View {
 }
 
 struct TextFieldView: View {
-    
-    
+    @State private var avatarItem: PhotosPickerItem?
+    @State private var avatarImage: Image?
     @Binding var model : addWishList
     var title: String
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(title)
+            
+            if title == "금액" {
+                HStack {
+                    Text(title)
+                    Spacer()
+                    Text(model.formattedValueItem)
+                        .fontWeight(.bold)
+                        .foregroundStyle(.accent)
+                }
+                .frame(maxWidth: .infinity, alignment: .trailing)
+                
+            } else {
+                Text(title)
+            }
+            
             HStack {
                 TextField(text: title == "물품명" ? $model.nameField : title == "금액" ? $model.valueItem : $model.imageURL) {
                     switch title {
@@ -66,29 +82,49 @@ struct TextFieldView: View {
                         .stroke(.gray, lineWidth: 2)
                 )
                 if title == "이미지" {
-                    Button(action: {
-                        
-                    }, label: {
+                    PhotosPicker(selection: $avatarItem,
+                                 matching: .any(of: [.images, .not(.screenshots)])) {
                         Image(systemName: "photo.badge.plus")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 30, height: 30)
-                    })
+                    }
+                                 .onChange(of: avatarItem) {
+                                     Task {
+                                         if let loaded = try? await avatarItem?.loadTransferable(type: Image.self) {
+                                             avatarImage = loaded
+                                             model.imageURL = "\(loaded)"
+                                         } else {
+                                             print("Failed")
+                                         }
+                                     }
+                                 }
                 }
             }
+            avatarImage?
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(maxWidth: .infinity)
+                .frame(height: 180, alignment: .center)
+                .clipped()
+                .padding()
         }
-        .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
+        .padding(EdgeInsets(top: 5, leading: 20, bottom: 5, trailing: 20))
     }
 }
 
+
+
+
 struct SelectButton: View {
+    @Environment(\.dismiss) var dismiss
     @Binding var model : addWishList
     var title: String
     var color: Color
     
     var body: some View {
         Button(action: {
-            
+            dismiss()
         }, label: {
             Text(title)
                 .font(.headline)

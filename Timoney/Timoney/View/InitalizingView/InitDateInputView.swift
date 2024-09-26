@@ -8,80 +8,74 @@
 import SwiftUI
 
 struct InitDateInputView: View {
-    
     @Environment(\.dismiss) var dissmiss
-    
-    @State var startDate: Date = .now
-    @State var endDate: Date = .now
-    
-    
+    @Binding var DateModel: InitalizingDateModel
     
     var body: some View {
         VStack{
-            HStack{
-                Circle()
-                    .frame(width: 20, height: 20)
-                    .foregroundStyle(.secondary)
-                Circle()
-                    .frame(width: 20, height: 20)
-                    .foregroundStyle(.accent)
-                Circle()
-                    .frame(width: 20, height: 20)
-                    .foregroundStyle(.secondary)
-                    
-            }
-            
-            Spacer()
-            
             HStack{
                 VStack(alignment: .leading){
                     Text("시작 날짜와")
                     Text("마감 날짜를 선택해주세요.")
                 }
-                .font(.largeTitle)
+                .font(.title)
+                .fontWeight(.bold)
                 Spacer()
             }
             .padding()
             
             VStack{
                 HStack{
-                    DatePicker("시작", selection: $startDate, displayedComponents: .date)
+                    DatePicker("시작 날짜 :", selection: $DateModel.startDate, displayedComponents: .date)
                         .padding()
+                        .onTapGesture(count: 99) {}
+                          .onTapGesture {
+                                  UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                           }
                 }
+                .frame(width: 300, alignment: .center)
                 HStack{
-                    DatePicker("마감", selection: $endDate, displayedComponents: .date)
+                    DatePicker("마감 날짜 :", selection: $DateModel.endDate, displayedComponents: .date)
                         .padding()
+                        .onTapGesture(count: 99) {}
+                          .onTapGesture {
+                                  UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                           }
                 }
+                .frame(width: 300, alignment: .center)
                 Divider()
-                Text("30일 간격으로 계산됩니다")
+//                Text("\(DateModel.timeInterval)일 간격으로 계산됩니다")
+//                    .padding()
             }
             
-            Spacer()
-            NavigationLink {
-                InitWishListView()
-            } label: {
-                ZStack{
-                    RoundedRectangle(cornerRadius: 10)
-                        .frame(width: 100, height: 50)
-                    Text("다음으로")
-                        .colorInvert()
-                }
-            }
-        }
-        .padding()
-        .navigationBarBackButtonHidden()
-        .toolbar {
-            ToolbarItem(placement: .cancellationAction) {
-                Button{
-                    dissmiss()
-                }label: {
-                    Text("이전으로")
-                }
-            }
+//            Spacer()
+//            NavigationLink {
+//                InitWishListView()
+//            } label: {
+//                ZStack{
+//                    RoundedRectangle(cornerRadius: 10)
+//                        .frame(width: 100, height: 50)
+//                    Text("다음으로")
+//                        .foregroundStyle(.white)
+//                }
+//            }
+//        }
+//        .padding()
+//        .navigationBarBackButtonHidden()
+//        .toolbar {
+//            ToolbarItem(placement: .cancellationAction) {
+//                Button{
+//                    dissmiss()
+//                }label: {
+//                    Text("이전으로")
+//                }
+//            }
         }
     }
 }
 
-#Preview {
-    InitDateInputView()
-}
+//#Preview {
+//    NavigationStack{
+//        InitDateInputView()
+//    }
+//}
