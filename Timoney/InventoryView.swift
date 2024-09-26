@@ -15,21 +15,21 @@ struct InventoryView: View {
         NavigationStack {
             ScrollView {
                 VStack {
-                    HStack {
-                        Spacer()
-                        NavigationLink(destination : addWishListView()) {
-                            Image(systemName: "plus")
-                                .font(.system(size: 24))
-                        }
-                        
-                        Button(action: {
-                            isEditShowing = true
-                        }, label: {
-                            Image(systemName: "pencil")
-                                .font(.system(size: 24))
-                                .padding(.trailing,20)
-                        })
-                    }
+//                    HStack {
+//                        Spacer()
+//                        NavigationLink(destination : addWishListView()) {
+//                            Image(systemName: "plus")
+//                                .font(.system(size: 24))
+//                        }
+//                        
+//                        Button(action: {
+//                            isEditShowing = true
+//                        }, label: {
+//                            Image(systemName: "pencil")
+//                                .font(.system(size: 24))
+//                                .padding(.trailing,20)
+//                        })
+//                    }
                     
                     Grid(horizontalSpacing: -15, verticalSpacing: 15) {
                         GridRow {
@@ -61,6 +61,27 @@ struct InventoryView: View {
             }
             .navigationTitle("위시리스트")
             .navigationBarTitleDisplayMode(.automatic)
+            .toolbar {
+                ToolbarItemGroup {//위시리스트 수정하기 및 추가하기
+                    HStack {
+                        Spacer()
+                        NavigationLink(destination : addWishListView()) {
+                            Image(systemName: "plus")
+                                .font(.system(size: 24))
+                        }
+                        
+                        if !isEditShowing{
+                            Button(action: {
+                                isEditShowing = true
+                            }, label: {
+                                Image(systemName: "pencil")
+                                    .font(.system(size: 24))
+                                    .padding(.trailing,20)
+                            })
+                        }
+                    }
+                }
+            }
             
             // 수정하기 버튼
             if isEditShowing {
