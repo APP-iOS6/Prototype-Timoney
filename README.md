@@ -23,6 +23,22 @@
 # 시나리오
 ![image](https://github.com/user-attachments/assets/f0ca591c-702a-47c1-b6fe-bad2555c36fb)
 
+### 개발 초기 메인페이지
+|1안|
+|---|
+|![메인화면1-1](https://github.com/user-attachments/assets/4d51462b-4ccc-46b6-a4e1-66b35ca5d577) ![메인화면1-2](https://github.com/user-attachments/assets/529b316a-621a-4505-9d27-27dd998de810)|
+|2안|
+|![메인화면2](https://github.com/user-attachments/assets/ca7cd991-6efe-473c-bc4c-fb47c7fc1a35)|
+
+상호 방문 테스트를 통해 피드백 받은 결과 2안이 좋다는 의견이 많아 2안으로 결정하였습니다
+
+
+##구성 화면
+|초기 설정 화면|메인 화면|위시리스트|
+|----------|-------|--------|
+|![초기 설정 화면](https://github.com/user-attachments/assets/4062a074-cc0c-4845-bcdb-a354aeca1c44)|![메인화면](https://github.com/user-attachments/assets/918b67b9-f99d-41d3-acbe-56fc1d9b8965)|![위시리스트](https://github.com/user-attachments/assets/c61f73a6-f7de-45ae-a0c0-46eb8f891bd9)|
+
+
 
 # 작동환경 🛠️
 - Xcode : 15.4
