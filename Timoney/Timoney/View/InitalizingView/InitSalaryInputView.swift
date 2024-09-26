@@ -69,7 +69,7 @@ struct InitSalaryInputView: View {
             //            }
             //            .disabled(salary.isEmpty)
         }
-        .padding()
+        //.padding()
         
     }
 }
