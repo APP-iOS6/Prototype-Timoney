@@ -68,45 +68,25 @@ struct ItemView: View {
                         .contentTransition(.numericText())
                     
                     
-                    Text("\(progressPercent)%")
-                        .offset(x: proxy.size.width * 0.01 * CGFloat((Double(progressPercent) * 0.9 - 45)))
-                        .font(.system(size: 14))
-                        .padding(.horizontal)
-                        .padding(.bottom,0)
+                    if progressPercent == 100 {
+                        Text("100%")
+                            .offset(x: proxy.size.width * 0.4105)
+                            .font(.system(size: 14, weight: .bold))
+                            .padding(.horizontal)
+                            .padding(.bottom, 0)
+                            .foregroundStyle(.button)
+                    } else {
+                        Text("\(progressPercent)%")
+                            .offset(x: proxy.size.width * 0.01 * CGFloat((Double(progressPercent) * 0.9 - 45)))
+                            .font(.system(size: 14))
+                            .padding(.horizontal)
+                            .padding(.bottom,0)
+                    }
+                    
                     ProgressView(value: money > item.price ? item.price : money, total: item.price)
                         .scaleEffect(y:2.5)
                         .padding()
                         .padding(.top,-15)
-                        .phaseAnimator(AnimationPhase.allCases) { view, phase in
-                            if money < item.price {
-                                
-                                view.accentColor(.accent)
-                            } else {
-                                switch phase {
-                                case .red :
-                                    view.accentColor(.red)
-                                    
-                                case .orange :
-                                    view.accentColor(.orange)
-                                    
-                                case .yellow :
-                                    view.accentColor(.yellow)
-                                    
-                                case .green :
-                                    view.accentColor(.green)
-                                    
-                                case .blue :
-                                    view.accentColor(.blue)
-                                    
-                                case .indigo :
-                                    view.accentColor(.indigo)
-                                    
-                                case .purple :
-                                    view.accentColor(.purple)
-                                }
-                                
-                            }
-                        }
                         .accentColor(money < item.price ? .accent : .button)
                     
                     if money < item.price {
