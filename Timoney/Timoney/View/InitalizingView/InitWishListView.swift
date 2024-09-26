@@ -15,7 +15,6 @@ struct InitWishListView: View {
     @State private var isSelected: Bool = false
     
     @State private var productName: String = ""
-    @State private var price: String = ""
     @State private var isDisplayWish: Bool = false
     @State private var howMany: Int = 1
     
@@ -23,10 +22,12 @@ struct InitWishListView: View {
     
     @FocusState private var isFocus: Bool
     
+    @State var Model = InitalizingDateModel()
+    
     
     var isDoneButtonAbled: Bool{
         if isDisplayWish{
-            return (productName.isEmpty || price.isEmpty) ? true : false
+            return (productName.isEmpty || Model.yourValue.isEmpty) ? true : false
         }else{
             return wishProduct.isEmpty
         }
@@ -38,7 +39,9 @@ struct InitWishListView: View {
                     Spacer()
                     VStack(alignment: .leading){
                         Text("번 금액으로")
+                            .fontWeight(.bold)
                         Text("사고 싶은 물건이 있나요?")
+                            .fontWeight(.bold)
                     }
                     .font(.title)
                     if isDisplayWish{
@@ -51,13 +54,21 @@ struct InitWishListView: View {
                                 .autocorrectionDisabled(true)
                                 .focused($isFocus)
                             
-                            Text("가격")
-                            TextField("금액", text: $price)
-                                .multilineTextAlignment(.trailing)
-                                .textFieldStyle(.roundedBorder)
-                                .keyboardType(.numberPad)
-                                .padding(.bottom)
-                                .focused($isFocus)
+                            HStack {
+                                Text("가격")
+                                Spacer()
+                                Text(Model.formattedYourValue)
+                                    .foregroundStyle(.accent)
+                                    .fontWeight(.bold)
+                            }
+                            .frame(alignment: .leading)
+                            
+                                TextField("금액", text: $Model.yourValue)
+                                    .multilineTextAlignment(.trailing)
+                                    .textFieldStyle(.roundedBorder)
+                                    .keyboardType(.numberPad)
+                                    .padding(.bottom)
+                                    .focused($isFocus)
                             Text("개수")
                             HStack{
                                 Spacer()
@@ -129,7 +140,7 @@ struct InitWishListView: View {
                 }
                 .padding()
                 .navigationBarBackButtonHidden()
-                .toolbarBackground(.hidden, for: .navigationBar)
+                // .toolbarBackground(.hidden, for: .navigationBar)
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) {
                         Button{
@@ -147,7 +158,7 @@ struct InitWishListView: View {
                                 .frame(width: 20, height: 20)
                                 .foregroundStyle(.secondary)
                             Circle()
-                                .frame(width: 20, height: 20)
+                                .frame(width: 25, height: 25)
                                 .foregroundStyle(.accent)
                         }
                     }

@@ -37,8 +37,8 @@ struct InitWishSearchListView: View {
     }
 }
 
-#Preview {
-    @Previewable @State var search: String = "1"
-    @Previewable @State var isSelected: Bool = false
-    InitWishSearchListView(search: $search, isSelected: $isSelected)
-}
+//#Preview {
+//    @Previewable @State var search: String = "1"
+//    @Previewable @State var isSelected: Bool = false
+//    InitWishSearchListView(search: $search, isSelected: $isSelected)
+//}

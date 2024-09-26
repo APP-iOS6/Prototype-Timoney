@@ -15,6 +15,8 @@ struct ItemView: View {
     var item: WishItem
     var money: Double
     var pay: Double
+    @State private var selected: Bool = false
+    @State private var timer: Timer? // 타이머를 저장할 변수
     var progressPercent: Int {
         if money >= item.price {
             return 100
@@ -42,10 +44,29 @@ struct ItemView: View {
                     Image(item.imgName)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
+                        .scaleEffect(selected ? 0.9 : 1.2) // 상태에 따라 스케일 변경
+                        .onAppear {
+                            // 뷰가 나타날 때 타이머 시작
+                            timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+                                if selected == true {
+                                    withAnimation(.easeInOut(duration: 0.5)) {
+                                        selected.toggle() // 상태를 토글
+                                    }
+                                }
+                            }
+                        }
+                        .onDisappear {
+                            // 뷰가 사라질 때 타이머 중지
+                            timer?.invalidate()
+                        }
+                        .padding()
+                    
                     Text(item.name) // 필요 없을거 같기도
                         .font(.system(size: 14))
                     Text("\(Int(item.price))원")
                         .font(.system(size: 20))
+                        .contentTransition(.numericText())
+                    
                     
                     Text("\(progressPercent)%")
                         .offset(x: proxy.size.width * 0.01 * CGFloat((Double(progressPercent) * 0.9 - 45)))
@@ -56,34 +77,36 @@ struct ItemView: View {
                         .scaleEffect(y:2.5)
                         .padding()
                         .padding(.top,-15)
-                    //                        .phaseAnimator(AnimationPhase.allCases) { view, phase in
-                    //                            if money < item.price {
-                    //                                view.accentColor(.accent)
-                    //                            } else {
-                    //                                switch phase {
-                    //                                case .red :
-                    //                                    view.accentColor(.red)
-                    //
-                    //                                case .orange :
-                    //                                    view.accentColor(.orange)
-                    //
-                    //                                case .yellow :
-                    //                                    view.accentColor(.yellow)
-                    //
-                    //                                case .green :
-                    //                                    view.accentColor(.green)
-                    //
-                    //                                case .blue :
-                    //                                    view.accentColor(.blue)
-                    //
-                    //                                case .indigo :
-                    //                                    view.accentColor(.indigo)
-                    //
-                    //                                case .purple :
-                    //                                    view.accentColor(.purple)
-                    //                                }
-                    //                            }
-                    //                        }
+                        .phaseAnimator(AnimationPhase.allCases) { view, phase in
+                            if money < item.price {
+                                
+                                view.accentColor(.accent)
+                            } else {
+                                switch phase {
+                                case .red :
+                                    view.accentColor(.red)
+                                    
+                                case .orange :
+                                    view.accentColor(.orange)
+                                    
+                                case .yellow :
+                                    view.accentColor(.yellow)
+                                    
+                                case .green :
+                                    view.accentColor(.green)
+                                    
+                                case .blue :
+                                    view.accentColor(.blue)
+                                    
+                                case .indigo :
+                                    view.accentColor(.indigo)
+                                    
+                                case .purple :
+                                    view.accentColor(.purple)
+                                }
+                                
+                            }
+                        }
                         .accentColor(money < item.price ? .accent : .button)
                     
                     if money < item.price {

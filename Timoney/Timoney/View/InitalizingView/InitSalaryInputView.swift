@@ -8,61 +8,74 @@
 import SwiftUI
 
 struct InitSalaryInputView: View {
-    
     @Binding var salary: String
     @FocusState.Binding var isfocus: Bool
+    @Binding var salaryModel: InitalizingDateModel
+    
     var body: some View {
         VStack{
-//            HStack{
-//                Circle()
-//                    .frame(width: 20, height: 20)
-//                    .foregroundStyle(.accent)
-//                Circle()
-//                    .frame(width: 20, height: 20)
-//                    .foregroundStyle(.secondary)
-//                Circle()
-//                    .frame(width: 20, height: 20)
-//                    .foregroundStyle(.secondary)
-//            }
-//            Spacer()
+            //            HStack{
+            //                Circle()
+            //                    .frame(width: 20, height: 20)
+            //                    .foregroundStyle(.accent)
+            //                Circle()
+            //                    .frame(width: 20, height: 20)
+            //                    .foregroundStyle(.secondary)
+            //                Circle()
+            //                    .frame(width: 20, height: 20)
+            //                    .foregroundStyle(.secondary)
+            //            }
+            //            Spacer()
             HStack{
                 VStack(alignment: .leading){
                     Text("당신의 버는")
                     Text("금액을 말씀해 주세요.")
                 }
+                .fontWeight(.bold)
                 .font(.title)
                 Spacer()
             }
             .padding()
             
-            TextField("원", text: $salary)
+            TextField("원", text: $salaryModel.yourValue)
                 .multilineTextAlignment(.trailing)
                 .textFieldStyle(.roundedBorder)
                 .keyboardType(.numberPad)
                 .padding()
                 .font(.title2)
                 .focused($isfocus)
-            
-//            Spacer()
-//            NavigationLink {
-//                InitDateInputView()
-//            } label: {
-//                ZStack{
-//                    RoundedRectangle(cornerRadius: 10)
-//                        .frame(width: 100, height: 50)
-//                    Text("다음으로")
-//                        .foregroundStyle(.white)
-//                }
-//            }
-//            .disabled(salary.isEmpty)
+                .toolbar {
+                    ToolbarItemGroup(placement: .keyboard) {
+                        Spacer()
+                        NavigationLink {
+                            InitWishListView()
+                        } label: {
+                            Text("다음으로")  
+                        }
+                        .disabled(salaryModel.yourValue.isEmpty) // yourValue가 비어있으면 비활성화
+                                            
+                    }
+                }
+            //            Spacer()
+            //            NavigationLink {
+            //                InitDateInputView()
+            //            } label: {
+            //                ZStack{
+            //                    RoundedRectangle(cornerRadius: 10)
+            //                        .frame(width: 100, height: 50)
+            //                    Text("다음으로")
+            //                        .foregroundStyle(.white)
+            //                }
+            //            }
+            //            .disabled(salary.isEmpty)
         }
         .padding()
         
     }
 }
 
-#Preview {
-    @Previewable @State var salary: String = ""
-    @Previewable @FocusState var isFocus: Bool
-    InitSalaryInputView(salary: $salary, isfocus: $isFocus)
-}
+//#Preview {
+//    @Previewable @State var salary: String = ""
+//    @Previewable @FocusState var isFocus: Bool
+//    InitSalaryInputView(salary: $salary, isfocus: $isFocus)
+//}

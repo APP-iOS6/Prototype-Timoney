@@ -90,7 +90,7 @@ struct ItemUIView: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 80, height: 80)
                 .padding()
-                .background(Color.white)
+                .background(.white)
                 .cornerRadius(10)
                 .shadow(color: .black.opacity(0.15), radius: 5, x: 0, y: 3)
             
@@ -99,14 +99,14 @@ struct ItemUIView: View {
             Text(name)
                 .font(.caption2)
                 .fontWeight(.light)
-                .foregroundColor(.black)
+                //.foregroundColor(.black)
                 .padding(.top, 10)
             
             // 물건 가격
             Text(price)
                 .font(.caption)
                 .fontWeight(.bold)
-                .foregroundColor(.black)
+                //.foregroundColor(.black)
             
             // 게이지바
             Image(progress)
@@ -154,14 +154,14 @@ struct ItemUIView2: View {
             Text(name)
                 .font(.caption2)
                 .fontWeight(.light)
-                .foregroundColor(.black)
+                //.foregroundColor(.black)
                 .padding(.top, 10)
             
             // 물건 가격
             Text(price)
                 .font(.caption)
                 .fontWeight(.bold)
-                .foregroundColor(.black)
+                //.foregroundColor(.black)
             
             // 게이지바
             Image(progress)
