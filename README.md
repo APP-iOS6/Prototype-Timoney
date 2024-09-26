@@ -21,7 +21,8 @@
 4. 메인 페이지 - 나의 위시리스트에 있는 물건까지의 프로그레스바와 앞으로 남은 돈을 보여줌
 
 # 시나리오
-![image](https://github.com/user-attachments/assets/f0ca591c-702a-47c1-b6fe-bad2555c36fb)
+![티머니 시나리오 _최종](https://github.com/user-attachments/assets/5f2a1007-8c28-49e6-8d23-9b19ec568d00)
+
 
 ### 개발 초기 메인페이지
 |1안|
