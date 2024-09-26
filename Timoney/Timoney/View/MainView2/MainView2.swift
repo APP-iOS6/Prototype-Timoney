@@ -55,7 +55,6 @@ struct MainView2: View {
                             t.animation = .default
                         }
                         .font(.system(size: 32, weight:.bold))
-                        .shadow(radius: 3, y: 6)
                         .padding(.bottom, 30)
                     
                     TabView {
